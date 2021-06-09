@@ -7,40 +7,39 @@ import (
 	"unsafe"
 )
 
-// todo 跑一下 race detector
-
-// CSOL is concurrently secure ordered list
+// CSOL 是并发安全的有序链表
 type CSOL struct {
-	head   *intNode
-	length int64
+	head   *intNode // 头节点
+	length int64    // 链表长度
 }
 
+// intNode 是链表节点
 type intNode struct {
-	value  int
-	marked uint32
-	mu     sync.Mutex
-	next   *intNode
+	value  int        // 节点值
+	marked uint32     // 节点是否被删除的标记 0 正常 1 被删除
+	mu     sync.Mutex // 节点锁
+	next   *intNode   // 下一节点地址
 }
 
+// newIntNode 返回一个值为value的新节点
 func newIntNode(value int) *intNode {
-	return &intNode{value: value, next: nil}
+	return &intNode{value: value}
 }
 
 // loadNext 原子地返回下一个节点的地址
 func (n *intNode) loadNext() *intNode {
 	// unsafe.Pointer的使用见：https://www.jianshu.com/p/7c8e395b2981
-	//return (*intNode)(atomic.LoadPointer((*unsafe.Pointer)(unsafe.Pointer(n.next))))
 	return (*intNode)(atomic.LoadPointer((*unsafe.Pointer)(unsafe.Pointer(&n.next))))
 }
 
 // storeNext 原子地存储下一个节点的地址
 func (n *intNode) storeNext(next *intNode) {
-	//atomic.StorePointer((*unsafe.Pointer)(unsafe.Pointer(n.next)), unsafe.Pointer(next))
 	atomic.StorePointer((*unsafe.Pointer)(unsafe.Pointer(&n.next)), unsafe.Pointer(next))
 }
 
+// NewInt 返回一个带头节点的空链表
 func NewInt() *CSOL {
-	return &CSOL{head: newIntNode(0), length: 0}
+	return &CSOL{head: newIntNode(0)}
 }
 
 // Len 返回有序链表的元素个数
@@ -48,7 +47,7 @@ func (c *CSOL) Len() int {
 	return int(atomic.LoadInt64(&c.length))
 }
 
-// String 以字符串形式返回链表的内容
+// String 以字符串形式返回链表的内容，目的是测试时查看效果
 func (c *CSOL) String() string {
 	a := c.head
 	s := ""
@@ -59,7 +58,7 @@ func (c *CSOL) String() string {
 	return fmt.Sprintf("# %s #", s)
 }
 
-// Slices 以slice形式返回链表的内容
+// Slices 以slice形式返回链表的内容，目的是测试时查看效果
 func (c *CSOL) Slices() []int {
 	a := c.head
 	var s []int
