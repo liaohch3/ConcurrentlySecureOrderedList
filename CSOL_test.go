@@ -91,9 +91,6 @@ func TestIntSet(t *testing.T) {
 		return true
 	})
 
-	l = NewInt()
-
-	// todo 这个数字我改小了 10000
 	const num = 10000
 	// Make rand shuffle array.
 	// The testArray contains [1,num]
