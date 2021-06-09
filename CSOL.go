@@ -72,6 +72,7 @@ func (c *CSOL) Slices() []int {
 // Insert 插入一个元素，如果此操作成功插入一个元素，则返回 true，否则返回 false
 func (c *CSOL) Insert(value int) bool {
 	for {
+		// 第一步：找到A和B
 		a := c.head
 		b := a.loadNext()
 
@@ -89,17 +90,22 @@ func (c *CSOL) Insert(value int) bool {
 			return false
 		}
 
-		// 锁定节点A
+		// 第二部：锁定节点A，检查AB合法性
 		a.mu.Lock()
 		if a.next != b || a.marked == 1 {
 			a.mu.Unlock()
 			continue
 		}
 
+		// 第三步：创建新节点并
 		x := newIntNode(value)
+
+		// 第四步：插入新节点
 		x.next = b
 		a.storeNext(x)
 		atomic.AddInt64(&c.length, 1)
+
+		// 第五步：解锁节点A
 		a.mu.Unlock()
 		return true
 	}
@@ -108,6 +114,7 @@ func (c *CSOL) Insert(value int) bool {
 // Delete 删除一个元素，如果此操作成功删除一个元素，则返回 true，否则返回 false
 func (c *CSOL) Delete(value int) bool {
 	for {
+		// 第一步：找到节点A和B
 		a := c.head
 		b := a.loadNext()
 
@@ -122,20 +129,27 @@ func (c *CSOL) Delete(value int) bool {
 			return false
 		}
 
+		// 第二步：锁定节点B，检查B的合法性
 		b.mu.Lock()
 		if b.marked == 1 {
 			b.mu.Unlock()
 			continue
 		}
+
+		// 第三步：锁定节点A，检查AB合法性
 		a.mu.Lock()
 		if a.next != b || a.marked == 1 {
 			a.mu.Unlock()
 			b.mu.Unlock()
 			continue
 		}
+
+		// 第四步：删除节点
 		atomic.StoreUint32(&b.marked, 1)
 		a.storeNext(b.next)
 		atomic.AddInt64(&c.length, -1)
+
+		// 第五步：解锁节点A和B
 		a.mu.Unlock()
 		b.mu.Unlock()
 		return true
@@ -145,6 +159,7 @@ func (c *CSOL) Delete(value int) bool {
 
 // Contains 检查一个元素是否存在，如果存在则返回 true，否则返回 false
 func (c *CSOL) Contains(value int) bool {
+	// 第一步：找到节点X
 	a := c.head.loadNext()
 	for a != nil && a.value < value {
 		a = a.loadNext()
@@ -157,12 +172,14 @@ func (c *CSOL) Contains(value int) bool {
 
 // Range 遍历此有序链表的所有元素，如果 f 返回 false，则停止遍历
 func (c *CSOL) Range(f func(value int) bool) {
+	// 第一步：遍历有序链表
 	a := c.head.loadNext()
 	for a != nil {
 		if atomic.LoadUint32(&a.marked) == 1 {
 			a = a.loadNext()
 			continue
 		}
+		// 第二步：调用 f 函数
 		if !f(a.value) {
 			return
 		}
