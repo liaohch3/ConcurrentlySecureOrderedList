@@ -43,15 +43,7 @@ Len() int
 ## 流程图
 
 ### 插入
-[![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbkEo5byA5aeLKSAtLT585om-5YiwQeWSjEJ8IEJ75piv5ZCm5om-5YiwfVxuQiAtLT4gfOWQpnwgQyjnu5PmnZ8pXG5CIC0tPiB85pivfCBEW-mUgeWumuiKgueCuUFdXG5EIC0tPiBFe0EubmV4dCE9QiBPUiA8YnI-IEEubWFya2VkfVxuRSAtLT4gfOaYr3wgQVxuRSAtLT4gfOWQpnwgRlvliJvlu7rmlrDoioLngrlYPGJyPlgubmV4dD1CPGJyPkEubmV4dD1YXVxuRiAtLT4gR1vop6PplIHoioLngrlBXVxuRyAtLT4gQ1xuIiwibWVybWFpZCI6eyJ0aGVtZSI6ImRlZmF1bHQifSwidXBkYXRlRWRpdG9yIjpmYWxzZSwiYXV0b1N5bmMiOnRydWUsInVwZGF0ZURpYWdyYW0iOmZhbHNlfQ)](https://mermaid-js.github.io/mermaid-live-editor/edit##eyJjb2RlIjoiZ3JhcGggTFJcbkEo5byA5aeLKSAtLT585om-5YiwQeWSjEJ8IEJ75piv5ZCm5om-5YiwfVxuQiAtLT4gfOWQpnwgQyjnu5PmnZ8pXG5CIC0tPiB85pivfCBEW-mUgeWumuiKgueCuUFdXG5EIC0tPiBFe0EubmV4dCE9QiBPUiA8YnI-IEEubWFya2VkfVxuRSAtLT4gfOaYr3wgQVxuRSAtLT4gfOWQpnwgRlvliJvlu7rmlrDoioLngrlYPGJyPlgubmV4dD1CPGJyPkEubmV4dD1YXVxuRiAtLT4gR1vop6PplIHoioLngrlBXVxuRyAtLT4gSCjnu5PmnZ8pXG4iLCJtZXJtYWlkIjoie1xuICBcInRoZW1lXCI6IFwiZGVmYXVsdFwiXG59IiwidXBkYXRlRWRpdG9yIjpmYWxzZSwiYXV0b1N5bmMiOnRydWUsInVwZGF0ZURpYWdyYW0iOmZhbHNlfQ)
-
-### 删除
-[![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbkEo5byA5aeLKSAtLT585om-5YiwQeWSjEJ8IEJ75piv5ZCm5om-5YiwfVxuQiAtLT4gfOWQpnwgQyjnu5PmnZ8pXG5CIC0tPiB85pivfCBEW-mUgeWumuiKgueCuUJdXG5EIC0tPiBFe0IubWFya2VkfVxuRSAtLT4gfOWQpnwgR1vplIHlrproioLngrlBXVxuRSAtLT4gfOaYr3wgRlvop6PplIHoioLngrlCXVxuRiAtLT4gQVxuRyAtLT4gSHtBLm5leHQhPUIgT1I8YnI-QS5tYXJrZWR9XG5IIC0tPiB85ZCmfCBKW0IubWFya2VkPXRydWU8YnI-QS5uZXh0PUIubmV4dF1cbkggLS0-IHzmmK98IElb6Kej6ZSB6IqC54K5QV1cbkkgLS0-IEZcbkogLS0-IEtb6Kej6ZSB6IqC54K5QSA8YnI-IOino-mUgeiKgueCuUJdXG5LIC0tPiBDXG4iLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/edit##eyJjb2RlIjoiZ3JhcGggTFJcbkEo5byA5aeLKSAtLT585om-5YiwQeWSjEJ8IEJ75piv5ZCm5om-5YiwfVxuQiAtLT4gfOWQpnwgQyjnu5PmnZ8pXG5CIC0tPiB85pivfCBEW-mUgeWumuiKgueCuUJdXG5EIC0tPiBFe0IubWFya2VkfVxuRSAtLT4gfOWQpnwgR1vplIHlrproioLngrlBXVxuRSAtLT4gfOaYr3wgRlvop6PplIHoioLngrlCXVxuRiAtLT4gQVxuRyAtLT4gSHtBLm5leHQhPUIgT1I8YnI-IEEubWFya2VkfVxuSCAtLT4gfOWQpnwgSltCLm1hcmtlZD10cnVlPGJyPkEubmV4dD1CLm5leHRdXG5IIC0tPiB85pivfCBJW-ino-mUgeiKgueCuUFdXG5JIC0tPiBGXG5KIC0tPiBLW-ino-mUgeiKgueCuUEgPGJyPiDop6PplIHoioLngrlCXVxuSyAtLT4gQ1xuIiwibWVybWFpZCI6IntcbiAgXCJ0aGVtZVwiOiBcImRlZmF1bHRcIlxufSIsInVwZGF0ZUVkaXRvciI6ZmFsc2UsImF1dG9TeW5jIjp0cnVlLCJ1cGRhdGVEaWFncmFtIjpmYWxzZX0)
-
-### 包含
-[![](https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbkEo5byA5aeLKSAtLT585om-5Yiw6IqC54K5WHwgQnvmmK_lkKbmib7liLB9XG5CIC0tPiB85ZCmfCBDW-i_lOWbnmZhbHNlXVxuQyAtLT4gRCjnu5PmnZ8pXG5CIC0tPiB85pivfCBFW-i_lOWbniFYLm1hcmtlZF1cbkUgLS0-IEQiLCJtZXJtYWlkIjp7InRoZW1lIjoiZGVmYXVsdCJ9LCJ1cGRhdGVFZGl0b3IiOmZhbHNlLCJhdXRvU3luYyI6dHJ1ZSwidXBkYXRlRGlhZ3JhbSI6ZmFsc2V9)](https://mermaid-js.github.io/mermaid-live-editor/edit/##eyJjb2RlIjoiZ3JhcGggTFJcbkEo5byA5aeLKSAtLT585om-5Yiw6IqC54K5WHwgQnvmmK_lkKbmib7liLB9XG5CIC0tPiB85ZCmfCBDW-i_lOWbnmZhbHNlXVxuQyAtLT4gRCjnu5PmnZ8pXG5CIC0tPiB85pivfCBFW-i_lOWbniFYLm1hcmtlZF1cbkUgLS0-IEYiLCJtZXJtYWlkIjoie1xuICBcInRoZW1lXCI6IFwiZGVmYXVsdFwiXG59IiwidXBkYXRlRWRpdG9yIjpmYWxzZSwiYXV0b1N5bmMiOnRydWUsInVwZGF0ZURpYWdyYW0iOmZhbHNlfQ)
-
-### mermaid 源代码
+![](./pic/insert.png)
 ```mermaid
 graph LR
 A(开始) -->|找到A和B| B{是否找到}
@@ -63,6 +55,9 @@ E --> |否| F[创建新节点X<br>X.next=B<br>A.next=X]
 F --> G[解锁节点A]
 G --> C
 ```
+
+### 删除
+![](./pic/delete.png)
 ```mermaid
 graph LR
 A(开始) -->|找到A和B| B{是否找到}
@@ -79,6 +74,9 @@ I --> F
 J --> K[解锁节点A <br> 解锁节点B]
 K --> C
 ```
+
+### 包含
+![](./pic/contain.png)
 ```mermaid
 graph LR
 A(开始) -->|找到节点X| B{是否找到}
